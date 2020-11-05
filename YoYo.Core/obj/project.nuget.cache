@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "96h+AADcfd6MjIKVlTrE96s4c8BDJa1W/7eBVM3yfZ7ruZGfRRa+piNcraUuW3FBrzev8RnbAUeXWPXBKT1hHg==",
+  "success": true,
+  "projectFilePath": "H:\\Projects\\GitDijitalMind\\YoYo\\YoYo.Core\\YoYo.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tripathi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Tripathi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Tripathi\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

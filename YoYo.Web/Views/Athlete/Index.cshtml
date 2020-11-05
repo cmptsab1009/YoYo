@@ -1,0 +1,74 @@
+﻿@model List<YoYo.Core.ResponseModel.AthletesResponse>
+@{
+    ViewData["Title"] = "YoYoTest";
+}
+
+<!-- style/css -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+<link href="~/css/normalize.css" rel="stylesheet" />
+<link href="~/css/asPieProgress.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+
+<!-- javascript/jquery -->
+<script src="~/js/jquery.js"></script>
+<script src="~/js/jquery-asPieProgress.js"></script>
+
+
+<div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+            <div class="card-body">
+                <h5 class="card-title text-center">YOYO Test</h5>
+                <p class="mb-4"></p>
+                <div class="row mb-4">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 start-test">
+                        <i id="button_start" class="fa fa-play-circle" style="font-size:100px;"></i>
+                    </div>
+                    <div class="col-md-4 runnig-test hide1">
+                        <div class="pie_progress--countdown" role="progressbar">
+                            <div class="pie_progress__number"></div>
+                            <!--<span  class="pie_progress__number">0:00</span>-->
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h6>Next Shuttle</h6>
+                        <span id="spnNextShuttle">0:00 s</span>
+                    </div>
+                    <div class="col-md-4 vl">
+                        <h6>Total Time</h6>
+                        <span id="spnTotalTime">0:00 m</span>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>Total Distance</h6>
+                        <span id="spnTotalDistance">0 m</span>
+                    </div>
+                </div>
+
+                <h5>Track</h5>
+                <hr class="mt-1 mb-4">
+                <div class="form-signin">
+                    @foreach (var athlet in Model)
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="inputEmail">@athlet.Name</label>
+                            </div>
+                            <div class="col-md-3">
+                                <button data-id="@athlet.UserId" class="btn btn-primary warn-athletes hide">Warn</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button data-id="@athlet.UserId" class="btn btn-danger stop-athletes hide">Stop</button>
+                                <span class="result-athletes"></span>
+                            </div>
+                        </div>
+                        <hr class="mt-1 mb-1">
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
