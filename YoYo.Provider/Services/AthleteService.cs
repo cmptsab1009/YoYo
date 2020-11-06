@@ -1,10 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using YoYo.Core.Constants;
 using YoYo.Core.Enum;
 using YoYo.Core.Exceptions;
@@ -52,8 +49,8 @@ namespace YoYo.Provider.Services
                 {
                     AppDbContext.athletes.Where(x => x.UserId == id).ToList().ForEach(y => y.Status = status);
 
-                    if(status == (int)AthleteStatus.Stoped && stopTime != null) // athelet is stopped, so needs to update the stopped time
-                        AppDbContext.athletes.Where(x => x.UserId == id).ToList().ForEach(y => y.StoppedTime = stopTime.Value.TimeOfDay );
+                    if (status == (int)AthleteStatus.Stoped && stopTime != null) // athelet is stopped, so needs to update the stopped time
+                        AppDbContext.athletes.Where(x => x.UserId == id).ToList().ForEach(y => y.StoppedTime = stopTime.Value.TimeOfDay);
 
                     return true;
                 }
@@ -64,7 +61,7 @@ namespace YoYo.Provider.Services
             {
                 throw new Exception(ex.Message);
             }
-            
+
         }
     }
 }

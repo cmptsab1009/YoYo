@@ -94,3 +94,10 @@ body {
 .hide {
     display: none !important;
 }
+
+.fa-check {
+    color:green;
+}
+.fa-times {
+    color: red;
+}

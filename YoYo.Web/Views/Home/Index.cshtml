@@ -53,16 +53,29 @@
                 <div class="form-signin">
                     @foreach (var athlet in Model)
                     {
-                        <div class="row">
+                        <div class="row" data-athlet-id="@athlet.UserId">
                             <div class="col-md-6">
                                 <label for="inputEmail">@athlet.Name</label>
                             </div>
                             <div class="col-md-3">
                                 <button data-id="@athlet.UserId" class="btn btn-primary warn-athletes hide">Warn</button>
+
+                                <div class="update-athletes-time hide">
+                                    <select class="form-control minutes" id="minutes"></select>
+                                    <i class="fa fa-check" data-id="@athlet.UserId" aria-hidden="true"></i>
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <button data-id="@athlet.UserId" class="btn btn-danger stop-athletes hide">Stop</button>
-                                <span class="result-athletes"></span>
+                                <div class="result-panel hide">
+                                    <span class="result-athletes"></span>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="update-athletes-time hide">
+                                    <select class="form-control second" id="second"></select>
+                                    <i class="fa fa-times" data-id="@athlet.UserId" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                         <hr class="mt-1 mb-1">

@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -25,14 +20,11 @@ namespace YoYo.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IOptions<AppSettings> _appSettings;
 
-
         public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
         {
             _logger = logger;
             _appSettings = appSettings;
         }
-
-        
 
         public IActionResult Index()
         {
@@ -41,6 +33,7 @@ namespace YoYo.Web.Controllers
             athleteList = JsonConvert.DeserializeObject<List<AthletesResponse>>(apiResponse);
             return View(athleteList);
         }
+       
         public IActionResult StartTest()
         {
             var fitnessRatingBeepList = new List<FitnessratingResponse>();
@@ -53,13 +46,13 @@ namespace YoYo.Web.Controllers
         {
             var athlete = new AthletesRequest() { UserId = id, Status = AthleteStatus.Warned, StoppedTime = null };
             var content = JsonConvert.SerializeObject(athlete);
-            bool result = JsonConvert.DeserializeObject<bool>(APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Athlete" , new CookieContainer(), HttpMethod.Put, content));
+            bool result = JsonConvert.DeserializeObject<bool>(APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Athlete", new CookieContainer(), HttpMethod.Put, content));
             return new JsonResult(result);
         }
 
         public IActionResult StopAthletes(int id, string stopTime)
         {
-           var currentDateTime = DateTime.Parse(stopTime.Trim());
+            var currentDateTime = DateTime.Parse(stopTime.Trim());
             var athlete = new AthletesRequest() { UserId = id, Status = AthleteStatus.Stoped, StoppedTime = currentDateTime };
             var content = JsonConvert.SerializeObject(athlete);
             bool result = JsonConvert.DeserializeObject<bool>(APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Athlete", new CookieContainer(), HttpMethod.Put, content));
