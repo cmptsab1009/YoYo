@@ -110,7 +110,7 @@
 
                     $("#spnTotalTime").text(stopTime);
                     $("#spnNextShuttle").text("0:00 m");
-                    $("#spnTotalDistance").text(totalDistance + " m");
+                    $("#spnTotalDistance").text(totalDistance);
                 }
             }
         }, "Get");

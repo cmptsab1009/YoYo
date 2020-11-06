@@ -101,3 +101,6 @@ body {
 .fa-times {
     color: red;
 }
+.fa-play-circle {
+    cursor: pointer;
+}
