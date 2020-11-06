@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="WebApiContrib.Formatting.Jsonp" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>

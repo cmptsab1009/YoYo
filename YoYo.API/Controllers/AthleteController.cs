@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper.Configuration;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using YoYo.Core.Interfaces;
+using YoYo.Core.RequestModel;
 using YoYo.Core.ResponseModel;
 
 namespace YoYo.API.Controllers
@@ -31,6 +33,12 @@ namespace YoYo.API.Controllers
         {
             // this will be called when we will have DB methods
             return _athlete.GetAllAthlete();
+        }
+
+        [HttpPut]
+        public bool Put([FromBody] AthletesRequest athletesRequest)
+        {
+            return _athlete.UpdateAthlete(athletesRequest.UserId, (int)athletesRequest.Status, athletesRequest.StoppedTime);
         }
     }
 }

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace YoYo.Web.Helper
 {
     public static class APIHelper
     {
-        public static string GetHttpContent(string uri, CookieContainer container)
+        public static string GetHttpContent(string uri, CookieContainer container, HttpMethod methodType, string bodyParameters = null)
         {
             using HttpClientHandler handler = new HttpClientHandler
             {
@@ -22,9 +23,13 @@ namespace YoYo.Web.Helper
             client.Timeout = TimeSpan.FromMinutes(3.0);
             using HttpRequestMessage request = new HttpRequestMessage
             {
-                Method = HttpMethod.Get,
+                Method = methodType,
                 RequestUri = new Uri(uri)
+               
             };
+            if (!string.IsNullOrEmpty(bodyParameters))
+                request.Content = new StringContent(bodyParameters, Encoding.UTF8, "application/json");
+
             using HttpResponseMessage response = client.SendAsync(request).GetAwaiter().GetResult();
             using HttpContent content = response.Content;
             string apiResponse = content.ReadAsStringAsync().GetAwaiter().GetResult();

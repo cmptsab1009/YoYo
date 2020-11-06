@@ -7,7 +7,7 @@ namespace YoYo.Core.ResponseModel
 {
     public class AthletesResponse
     {
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; }
         public AthleteStatus Status { get; set; }
     }

@@ -9,6 +9,7 @@ jQuery(function ($) {
     let speed = 8;
     let _max = 120;
     let _goal = 120;
+    let baseAPIUri = "https://localhost:44337/api/";
 
     let cofitnessRatingBeepcommulativeTime = "00:00";
     // $('.pie_progress--countdown').asPieProgress({
@@ -43,6 +44,7 @@ jQuery(function ($) {
 
     $('#button_start').on('click', function () {
         postData("Home/StartTest", {}, function (result) {
+       // postData("https://localhost:44337/api/Fitness", {}, function (result) {
             debugger;
             console.log(result);
             //$('.pie_progress--countdown').asPieProgress();
@@ -112,7 +114,7 @@ jQuery(function ($) {
                                         <span>Shuttle ${shuttle}</span><br />
                                         <span>${speed} km/h</span>`;
 
-                        $("#spnTotalTime").text(minutes + ': ' + seconds + 'm');
+                        $("#spnTotalTime").text(minutes + ':' + seconds );
                         return levelDisplay;//minutes + ': ' + seconds;
                     }
                 });
@@ -128,49 +130,62 @@ jQuery(function ($) {
         }, "Get");
     });
 
-    $('#button_finish').on('click', function () {
-        $('.pie_progress').asPieProgress('finish');
-    });
-
-    $('#button_stop').on('click', function () {
-        $('.pie_progress').asPieProgress('stop');
-    });
-
-    $('#button_reset').on('click', function () {
-        $('.pie_progress').asPieProgress('reset');
-    });
-
-    $(".stop-athletes").on("click", function () {
-        let _this = this;
-        let athleteId = $(_this).data("id");
-        postData("Home/StopAthletes/" + athleteId, {}, function (result) {
-            debugger;
-            $(_this).addClass("hide");
-            $(_this).parent(".col-md-3").find(".result-athletes").text("14-3");
-            $(_this).parents(".form-signin .row").find(".warn-athletes").addClass("hide");
-
-            if ($(".stop-athletes.hide").length == $(".stop-athletes").length) {
-                $('.pie_progress').asPieProgress('finish');
-            }
-        }, "Get");
-    });
-
     $(".warn-athletes").on("click", function () {
         let _this = this;
         let athleteId = $(_this).data("id");
         postData("Home/WarnAthletes/" + athleteId, {}, function (result) {
-            if (result == "ok") {
+            if (result == true) {
                 $(_this).attr("disabled", true).addClass("warned").text("Warned");
             }
         }, "Get");
 
     });
 
+    $(".stop-athletes").on("click", function () {
+        let _this = this;
+        let athleteId = $(_this).data("id");
+        let stopTime = $("#spnTotalTime").text();
+        postData("Home/StopAthletes?id=" + athleteId + "&stopTime=" + stopTime, {}, function (result) {
+            if (result == true) {
+                $(_this).addClass("hide");
+                $(_this).parent(".col-md-3").find(".result-athletes").text(stopTime);
+                $(_this).parents(".form-signin .row").find(".warn-athletes").addClass("hide");
+
+                if ($(".stop-athletes.hide").length == $(".stop-athletes").length) {
+                    $('.pie_progress').asPieProgress('finish');
+                }
+            }
+        }, "Get");
+    });
+
+    $('#button_stop').on('click', function () {
+        $('.pie_progress').asPieProgress('stop');
+    });
+
+    $('#button_finish').on('click', function () {
+        $('.pie_progress').asPieProgress('finish');
+    });
+
+    
+
+    $('#button_reset').on('click', function () {
+        $('.pie_progress').asPieProgress('reset');
+    });
+
+   
+
+   
+
     postData = function (url, data, callback, methodType) {
         methodType = methodType || "POST";
         $.support.cors = true;
         $.ajax({
             url: url,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+            },
             contentType: 'application/json',
             data: JSON.stringify(data),
             type: methodType,

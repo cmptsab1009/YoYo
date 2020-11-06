@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Threading.Tasks;
+using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using WebApiContrib.Formatting.Jsonp;
 using YoYo.API.Configurations;
 using YoYo.Core.Interfaces;
 using YoYo.Provider.Services;
@@ -23,6 +26,7 @@ namespace YoYo.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+           
         }
 
         public IConfiguration Configuration { get; }
@@ -30,8 +34,13 @@ namespace YoYo.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
             services.AddControllers();
             services.AddScoped<IAthlete, AthleteService>();
+            services.AddScoped<IFitnessAction, FitnessActionService>();
 
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -70,12 +79,14 @@ namespace YoYo.API
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
-
+           
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
             });
+
+            
         }
     }
 }

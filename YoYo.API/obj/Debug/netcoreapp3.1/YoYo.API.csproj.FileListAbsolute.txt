@@ -68,9 +68,6 @@ H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\YoYo.Data.pdb
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.csprojAssemblyReference.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.AssemblyInfoInputs.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.AssemblyInfo.cs
-H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.csproj.CoreCompileInputs.cache
-H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.MvcApplicationPartsAssemblyInfo.cs
-H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.MvcApplicationPartsAssemblyInfo.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.RazorTargetAssemblyInfo.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.csproj.CopyComplete
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\staticwebassets\YoYo.API.StaticWebAssets.Manifest.cache
@@ -78,3 +75,13 @@ H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\staticwebassets
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.dll
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.pdb
 H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.genruntimeconfig.cache
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\Files\fitnessrating_beeptest.json
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\WebApiContrib.Formatting.Jsonp.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\System.Web.Http.WebHost.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.csproj.CoreCompileInputs.cache
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.MvcApplicationPartsAssemblyInfo.cs
+H:\Projects\GitDijitalMind\YoYo\YoYo.API\obj\Debug\netcoreapp3.1\YoYo.API.MvcApplicationPartsAssemblyInfo.cache

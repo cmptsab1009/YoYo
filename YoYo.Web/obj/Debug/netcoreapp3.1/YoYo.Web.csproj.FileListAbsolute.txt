@@ -201,8 +201,6 @@ H:\Projects\GitDijitalMind\YoYo\YoYo.Web\bin\Debug\netcoreapp3.1\YoYo.Core.pdb
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.csprojAssemblyReference.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.AssemblyInfoInputs.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.AssemblyInfo.cs
-H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.csproj.CoreCompileInputs.cache
-H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.MvcApplicationPartsAssemblyInfo.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.RazorAssemblyInfo.cache
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.RazorAssemblyInfo.cs
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.TagHelpers.input.cache
@@ -226,3 +224,8 @@ H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\staticwebassets
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.dll
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.pdb
 H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.genruntimeconfig.cache
+H:\Projects\GitDijitalMind\YoYo\YoYo.Web\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.Web\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.Web\bin\Debug\netcoreapp3.1\WebApiContrib.Formatting.Jsonp.dll
+H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.csproj.CoreCompileInputs.cache
+H:\Projects\GitDijitalMind\YoYo\YoYo.Web\obj\Debug\netcoreapp3.1\YoYo.Web.MvcApplicationPartsAssemblyInfo.cache

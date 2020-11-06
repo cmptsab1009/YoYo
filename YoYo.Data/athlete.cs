@@ -6,8 +6,9 @@ namespace YoYo.Data
 {
     public class athlete
     {
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; }
         public int Status { get; set; }
+        public TimeSpan StoppedTime { get; set; }
     }
 }

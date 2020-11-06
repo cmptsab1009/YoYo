@@ -6,8 +6,9 @@ namespace YoYo.Core.Enum
 {
     public enum AthleteStatus
     {
-        Runnig = 0,
-        Warned = 1,
-        Stoped = 2
+        NotStarted = 0,
+        Runnig = 1,
+        Warned = 2,
+        Stoped = 3
     }
 }

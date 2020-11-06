@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using YoYo.Core.Enum;
+using YoYo.Core.RequestModel;
 using YoYo.Core.ResponseModel;
 using YoYo.Web.Helper;
 using YoYo.Web.Models;
@@ -31,28 +34,36 @@ namespace YoYo.Web.Controllers
 
         
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var athleteList = new List<AthletesResponse>();
-            string apiResponse =  APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Athlete", new CookieContainer());
+            string apiResponse = APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Athlete", new CookieContainer(), HttpMethod.Get);
             athleteList = JsonConvert.DeserializeObject<List<AthletesResponse>>(apiResponse);
             return View(athleteList);
         }
         public IActionResult StartTest()
         {
-           // var jsonString = System.IO.File.ReadAllText("Files/fitnessrating_beeptest.json");
-            var fitnessRatingBeepList = new List<FitnessratingResponse>();// JsonSerializer.Deserialize<List<FitnessratingResponse>>(jsonString);
+            var fitnessRatingBeepList = new List<FitnessratingResponse>();
+            string apiResponse = APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Fitness", new CookieContainer(), HttpMethod.Get);
+            fitnessRatingBeepList = JsonConvert.DeserializeObject<List<FitnessratingResponse>>(apiResponse);
             return new JsonResult(fitnessRatingBeepList);
         }
 
-        public IActionResult WarnAthletes(int athleteId)
+        public IActionResult WarnAthletes(int id)
         {
-            return new JsonResult("ok");
+            var athlete = new AthletesRequest() { UserId = id, Status = AthleteStatus.Warned, StoppedTime = null };
+            var content = JsonConvert.SerializeObject(athlete);
+            bool result = JsonConvert.DeserializeObject<bool>(APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Athlete" , new CookieContainer(), HttpMethod.Put, content));
+            return new JsonResult(result);
         }
 
-        public IActionResult StopAthletes(int athleteId)
+        public IActionResult StopAthletes(int id, string stopTime)
         {
-            return new JsonResult("ok");
+           var currentDateTime = DateTime.Parse(stopTime.Trim());
+            var athlete = new AthletesRequest() { UserId = id, Status = AthleteStatus.Stoped, StoppedTime = currentDateTime };
+            var content = JsonConvert.SerializeObject(athlete);
+            bool result = JsonConvert.DeserializeObject<bool>(APIHelper.GetHttpContent(_appSettings.Value.apiBaseUrl + "Athlete", new CookieContainer(), HttpMethod.Put, content));
+            return new JsonResult(result);
         }
 
         public IActionResult Privacy()
